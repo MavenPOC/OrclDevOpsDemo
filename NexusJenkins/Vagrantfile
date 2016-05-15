@@ -1,0 +1,29 @@
+Vagrant.configure(2) do |config|
+   config.vm.box = "ubuntu/trusty64"
+   config.vm.network "private_network" , ip: "192.168.33.244"  
+   config.vm.hostname = "nexuxjenkins.com"
+   config.vm.provider "virtualbox" do |vb|
+    vb.memory = "2048"
+   end
+
+   config.vm.provision "shell", inline: <<-SHELL
+    sudo wget http://apt.puppetlabs.com/puppetlabs-release-trusty.deb 
+    sudo dpkg -i puppetlabs-release-trusty.deb 
+    sudo apt-get update -y  
+    sudo apt-get install puppet -y
+    sudo apt-get install firefox -y
+   SHELL
+
+  config.vm.provision "puppet" do |puppet|
+    puppet.manifests_path = "manifests"
+    puppet.manifest_file = "default.pp"
+    puppet.module_path = "modules"
+#    puppet.hiera_config_path = "hiera.yaml"
+    puppet.options = "--verbose --debug"
+  end
+
+   config.vm.provision "shell", inline: <<-SHELL
+     sudo service jenkins restart 
+   SHELL
+
+end
