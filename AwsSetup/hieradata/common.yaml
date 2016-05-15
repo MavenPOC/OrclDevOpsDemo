@@ -1,0 +1,59 @@
+sudo::purge: false
+sudo::config_file_replace: false
+sudo::configs:
+  'tomcat_oracle-ubuntu':
+    'content': "tomcat ALL=NOPASSWD:/usr/sbin/service tomcat-oracle *"
+  'tomcat_oracle-ubuntu':
+    'content': "tomcat ALL=NOPASSWD:/sbin/service tomcat-oracle *"
+   
+java::distribution: "jre"
+tomcat::version: "7"
+tomcat::sources: true
+tomcat::sources_src: 'http://archive.apache.org/dist/tomcat/'
+instances:
+  "oracle":
+    ensure: "installed"
+    http_port: "8080"
+    ajp_port: "8009"
+    owner: "tomcat"
+    group: "tomcat"
+    webapp_mode: "0775"
+    logs_mode: "0775"
+mysql::server::root_password: 'password'
+mysql::server::databases:
+  "employeedb":
+    ensure: 'present'
+    charset: 'utf8'
+mysql_db:
+  "sonar":
+    user: "sonar"
+    password: "sonar"
+sonarqube::version: '5.2'
+sonarqube::user: 'sonar'
+sonarqube::group: 'sonar'
+sonarqube::service: 'sonar'
+sonarqube::installroot: '/opt/'
+sonarqube::jdbc: 
+  url: 'jdbc:mysql://localhost:3306/sonar?useUnicode=true&characterEncoding=utf8&rewriteBatchedStatements=true&useConfigs=maxPerformance'
+  username: 'sonar'
+  password: 'sonar'
+sonarqube::log_folder: '/var/log/sonar/logs'
+
+apache::mpm_module: 'prefork'
+apache::default_vhost: false
+zabbix::zabbix_url: '%{::ipaddress_eth0}'
+zabbix::javagateway: "%{::ipaddress_eth0}"
+zabbix::zabbix_timezone: 'EST'
+zabbix::javagatewayport: 10052
+zabbix::startjavapollers: 16
+zabbix::database_type: 'mysql'
+zabbix::javagateway::listenip: "0.0.0.0"
+zabbix::javagateway::startpollers: 16
+
+
+logstash::repo_version: "2.1"
+logstash::manage_repo: true
+
+
+kibana::version: '4.3.1'
+kibana::bind: '0.0.0.0'
