@@ -41,4 +41,7 @@ os=$(python -c "import platform;print(platform.linux_distribution()[0])")
 		echo " "
 		echo " "
 	fi
+else
+	echo "please pass correct argument \"jenkins/jenkins-light/tomcat/monitoring\""   
+fi
      }
