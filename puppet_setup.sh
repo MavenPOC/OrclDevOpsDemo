@@ -18,15 +18,15 @@ os=$(python -c "import platform;print(platform.linux_distribution()[0])")
 	fi
 		
 	# cloning git repo
-	rm -rf OrclDevOpsDemo
-	git clone https://github.com/MavenPOC/OrclDevOpsDemo.git
+	rm -rf OrclCiCdPOC
+	git clone https://github.com/OpsTree/OrclCiCdPOC.git
 
     mkdir -p /etc/puppet/manifests
 
-	cp -r OrclDevOpsDemo/AwsSetup/modules/* /etc/puppet/modules/
-	cp -r OrclDevOpsDemo/AwsSetup/manifests/* /etc/puppet/manifests/
-	cp -r OrclDevOpsDemo/AwsSetup/hieradata /etc/puppet/
-	cp OrclDevOpsDemo/AwsSetup/hiera.yaml /etc/puppet/
+	cp -r OrclCiCdPOC/AwsSetup/modules/* /etc/puppet/modules/
+	cp -r OrclCiCdPOC/AwsSetup/manifests/* /etc/puppet/manifests/
+	cp -r OrclCiCdPOC/AwsSetup/hieradata /etc/puppet/
+	cp OrclCiCdPOC/AwsSetup/hiera.yaml /etc/puppet/
 
 	if [ "$1" == "jenkins" ]
 	then
