@@ -8,7 +8,7 @@ os=$(python -c "import platform;print(platform.linux_distribution()[0])")
 	then
 		sudo wget http://apt.puppetlabs.com/puppetlabs-release-trusty.deb 
 		sudo dpkg -i puppetlabs-release-trusty.deb 
-		sudo  update -y  
+		sudo apt-get update -y  
 		sudo apt-get install puppet -y
 		sudo apt-get install git -y
 	else
