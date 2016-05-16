@@ -18,7 +18,7 @@ os=$(python -c "import platform;print(platform.linux_distribution()[0])")
 	fi
 		
 	# cloning git repo
-	rm -rf OrclDevOpsDemo
+	rm -rf OrclCiCdPOC
 	git clone https://github.com/MavenPOC/OrclDevOpsDemo.git
 
     mkdir -p /etc/puppet/manifests

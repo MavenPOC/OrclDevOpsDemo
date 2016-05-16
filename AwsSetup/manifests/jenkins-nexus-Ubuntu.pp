@@ -33,7 +33,6 @@ class { 'jenkins':
                                      config_content => template('jenkins/config/plugin/org.jenkinsci.plugins.xvfb.Xvfb.xml.erb')}
    },
   job_hash => {
-'OrclDevopsDemo Stage1 Build'    => { config => template("jenkins/config/jobs/OrclCiCdPOC_Stage1_Build.xml.erb") }
     'OrclCiCdPOC Deploy'		=> { config => template("jenkins/config/jobs/OrclCiCdPOC_Deployment.xml.erb") },
     'OrclCiCdPOC Junit Test'        		=> { config => template("jenkins/config/jobs/OrclCiCdPOC_Junit.xml.erb") },
     'OrclCiCdPOC Release'        	=> { config => template("jenkins/config/jobs/OrclCiCdPOC_Release.xml.erb") },
