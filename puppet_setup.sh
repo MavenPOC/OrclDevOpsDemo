@@ -22,6 +22,7 @@ os=$(python -c "import platform;print(platform.linux_distribution()[0])")
 	git clone https://github.com/MavenPOC/OrclDevOpsDemo.git
 
     mkdir -p /etc/puppet/manifests
+    mkdir -p /etc/puppet/modules
 
 	cp -r OrclDevOpsDemo/AwsSetup/modules/* /etc/puppet/modules/
 	cp -r OrclDevOpsDemo/AwsSetup/manifests/* /etc/puppet/manifests/
