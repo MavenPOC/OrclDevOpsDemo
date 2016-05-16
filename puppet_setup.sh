@@ -10,6 +10,7 @@ os=$(python -c "import platform;print(platform.linux_distribution()[0])")
 		sudo dpkg -i puppetlabs-release-trusty.deb 
 		sudo apt-get update -y  
 		sudo apt-get install puppet -y
+		sudo apt-get install puppet-common -y
 		sudo apt-get install git -y
 	else
 		sudo rpm -ivh http://yum.puppetlabs.com/puppetlabs-release-el-6.noarch.rpm
