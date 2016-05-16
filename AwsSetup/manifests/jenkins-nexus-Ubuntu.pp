@@ -38,6 +38,7 @@ class { 'jenkins':
     'OrclCiCdPOC Release'        	=> { config => template("jenkins/config/jobs/OrclCiCdPOC_Release.xml.erb") },
     'OrclCiCdPOC Selenium Test'        	=> { config => template("jenkins/config/jobs/OrclCiCdPOC_Selenium.xml.erb") },
     'OrclCiCdPOC Code Quality Test (Sonar)'        		=> { config => template("jenkins/config/jobs/OrclCiCdPOC_Sonar.xml.erb") },
+    'OrclDevOpsDemo Stage 1 Build'        		=> { config => template("jenkins/config/jobs/OrclDevOpsDemo_Stage1_Build.xml.erb") },
   }
  }->
 class { "ssh::jenkins": }
