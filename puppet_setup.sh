@@ -6,8 +6,8 @@ then
 os=$(python -c "import platform;print(platform.linux_distribution()[0])")
 	if [ "$os" == "Ubuntu" ]
 	then
-		sudo wget http://apt.puppetlabs.com/puppetlabs-release-pcl-trusty.deb 
-		sudo dpkg -i puppetlabs-release-pcl-trusty.deb 
+		sudo wget http://apt.puppetlabs.com/puppetlabs-release-precise.deb 
+		sudo dpkg -i puppetlabs-release-precise.deb 
 		sudo apt-get update -y  
 		sudo apt-get install puppet -y
 		sudo apt-get install puppet-common -y
